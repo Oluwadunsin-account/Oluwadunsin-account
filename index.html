@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Dunsin's Portfolio</title>
+  <style>
+    /* Basic reset */
+    body, h1, h2, p, ul, li, a, input, textarea, button {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #B0C4DE;
+      color: #778899;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+	  color:#FFFFFF;
+    }
+	
+	img{
+	  border-radius:50%;
+	  width:250px;
+	  height:250px;
+	  border:4px solid #FFFFFF;
+		
+    }
+	
+	#img{
+	   margin-left:35%;
+	}
+
+	.para{
+		color:#4682B4;
+		line-height:25px;
+	}
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+	  
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #778899;
+      font-weight: bold;
+	  color: #778899;
+	  
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+	  
+    }
+
+    section {
+      margin-bottom: 40px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    /* Projects list */
+    .projects-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .projects-list li {
+      margin-bottom: 15px;
+    }
+
+    .projects-list a {
+      color: #4682B4;
+      text-decoration: none;
+    }
+
+    .projects-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* Contact form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+	  color: #4682B4;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input, textarea {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    button {
+      background-color: #4682B4;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 1.1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #778899;
+    }
+
+    /* Responsive */
+    @media (max-width: 500px) {
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1> Oluwadunsin </h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div id="img">
+	<img src="photo.jpg"/>
+  
+  </div>
+
+  <section id="about">
+    <h2>About Me</h2>
+        <p class="para">Hello! I’m Oluwadunsin Ruth Owolabi-Ajayi, an  aspiring full stack 
+	       developer  currently in Primary 7  based in the United Kingdom.I am passionate about building
+	       impactful and enjoyable web pages that combine creativity and functionality.I am enthusiastic about  
+	       coding and experienced invarious programming languages.I particularly enjoy CSS and its ability to 
+	       transform simple webpages into works of ART. </p>
+	   
+	   <p class="para">I am actively involved with P4F Robotics were I gained hands-on experience with  live robots.
+		  This has also been my first introduction to JavaScript blocks, which I have grown to love. 
+		  Through this involvement  I have developed important skills such as teamwork and coordination. </p>
+		  
+		<p class="para">At the 2024-2025 and 2025-2026 First Tech Challenge Regional Qualifiers, we won the Inspire Award both years.
+			 Additionally, we qualified for the UK Championship in 2024-2025, where we proudly won the Motivate Award and placed third overall. </p>
+				   
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul class="projects-list">
+      <li><a href="#" target="_blank">Project 1 - Portfolio Web page </a></li>
+      <li><a href="#" target="_blank">Project 2 - Timetable Chart</a></li>
+      <li><a href="#" target="_blank">Project 3 - Login Form</a></li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" placeholder="Write your message here..." rows="4" required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <script>
+    // Simple form validation and alert on submit
+    const form = document.getElementById('contactForm');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form from submitting normally
+
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      if (name.length < 2) {
+        alert('Please enter your name (at least 2 characters).');
+        form.name.focus();
+        return;
+      }
+
+      // Basic email pattern check
+      const emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+      if (!emailPattern.test(email)) {
+        alert('Please enter a valid email address.');
+        form.email.focus();
+        return;
+      }
+
+      if (message.length < 5) {
+        alert('Please enter a message (at least 5 characters).');
+        form.message.focus();
+        return;
+      }
+
+      alert('Thank you for your message, ' + name + '!');
+
+      form.reset(); // Clear the form
+    });
+  </script>
+
+</body>
+</html>
